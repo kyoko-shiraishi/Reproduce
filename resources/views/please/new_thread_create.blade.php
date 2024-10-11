@@ -1,4 +1,4 @@
-遷移先ページ
+<!-- 遷移先ページ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
