@@ -6,7 +6,7 @@ use App\Http\Controllers\PleaseController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PostController;
-use App\Http\Controller\NewController;
+use App\Http\Controllers\NewController;
 
 // ララベルトップルート
 Route::get('/', function () { 
@@ -56,4 +56,4 @@ Route::get('/logo',[PleaseController::class,'logo'])->name('logo');
 Route::get('/search',[SearchController::class,'search'])->name('search.results');
 Route::get('/post/{id}',[PostController::class,'post'])->name('post');
 Route::get('/new_thread_create',[PleaseController::class,'new_thread_create'])->name('new_thread_create');
-Route::post('/thread_store',[NewController::class,'thread_store'])->name('new_thread');
+Route::post('/thread_store',[NewController::class,'thread_store'])->name('thread_store');

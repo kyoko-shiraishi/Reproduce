@@ -37,6 +37,6 @@
     @endforeach
 </ul>
 </div>
-
+@include('please.new_thread')
 </x-app-layout>
  

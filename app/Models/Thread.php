@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Thread extends Model
 {
     use HasFactory;
-    protected $fillable=['content'];
+    protected $fillable=['content','product_id', 'company_id','user_id'];
     public function company(){
         return $this->belongsTo(Company::class);
     }
