@@ -8,9 +8,8 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
+        <!-- Fonts -->
+        <script src="https://kit.fontawesome.com/e7550042f0.js" crossorigin="anonymous"></script>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -32,6 +31,21 @@
             padding: 10px; /* 内側のパディングを設定 */
             margin-bottom: 10px; /* 各リスト項目の下にマージンを追加 */
             width: 100%; /* 各リスト項目も幅を100%に設定 */
+        }
+        .liked{
+            color:orangered;
+            transition:.2s;
+        }
+        .flexbox{
+            align-items: center;
+            display: flex;
+        }
+        .count-num{
+            font-size: 20px;
+            margin-left: 10px;
+        }
+        .fa-heart{
+            font-size: 30px;
         }
     </style>
     </head>

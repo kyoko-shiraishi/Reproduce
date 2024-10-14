@@ -1,5 +1,4 @@
-<!-- please/create.blade.php -->
-<a href="{{ route('new_thread_create') }}" class="fixed-button">
+<!-- please/create.blade.php --><a href="{{ route('new_post_create', ['id' => $thread->id]) }}" class="fixed-button">
     ＋
 </a>
 
@@ -11,7 +10,7 @@
         bottom: 20px; /* 画面下からの距離 */
         width: 60px; /* ボタンの幅 */
         height: 60px; /* ボタンの高さ */
-        background-color: #00CC66; /* ツイッターっぽい青色 */
+        background-color: #0099FF; /* ツイッターっぽい青色 */
         color: white; /* テキストの色 */
         font-size: 36px; /* テキストの大きさ */
         text-align: center; /* テキストを中央に配置 */
@@ -24,6 +23,6 @@
 
     /* ホバー時の効果 */
     .fixed-button:hover {
-        background-color: #00CC99; /* 少し濃い色に変更 */
+        background-color: #3399FF; /* 少し濃い色に変更 */
     }
 </style>

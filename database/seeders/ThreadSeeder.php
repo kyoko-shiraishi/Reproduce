@@ -16,6 +16,7 @@ class ThreadSeeder extends Seeder
         
         $contents=[
             ['user_id' => 1, 'product_id'=>1,'company_id'=>1,'content'=>'とっても使いやすかった。また買いたい。'],
+            
            
         ];
         DB::table('threads')->insert($contents);
