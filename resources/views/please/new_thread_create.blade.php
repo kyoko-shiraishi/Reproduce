@@ -1,3 +1,6 @@
+
+<!-- 遷移先ページ -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
