@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\NewController;
+use App\Http\Controllers\LikeController;
 
 // ララベルトップルート
 Route::get('/', function () { 
@@ -57,3 +58,9 @@ Route::get('/search',[SearchController::class,'search'])->name('search.results')
 Route::get('/post/{id}',[PostController::class,'post'])->name('post');
 Route::get('/new_thread_create',[PleaseController::class,'new_thread_create'])->name('new_thread_create');
 Route::post('/thread_store',[NewController::class,'thread_store'])->name('thread_store');
+Route::get('/new_post_create/{id}', [NewController::class, 'new_post_create'])->name('new_post_create');
+
+Route::post('/post_store/{threadId}', [NewController::class, 'post_store'])->name('post_store');
+Route::get('/delete',[PleaseController::class,'delete_show'])->name('delete_show');
+Route::post('/delete_selected',[PleaseController::class,'delete_selected'])->name('delete_selected');
+Route::post('/thread/like', [LikeController::class, 'likeThread']);

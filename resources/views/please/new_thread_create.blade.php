@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 新規スレッド作成ページ -->
+    
 </head>
 <body>
     <h1>新規スレッド作成ページ</h1>  
-    <form action="{{ route('thread_store') }}" method="post">
+    <form action="{{ route('thread_store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <p>ユーザー：</p>
         <input type="text" name="user" placeholder="ユーザー名"><br>
@@ -27,9 +27,15 @@
         </select><br>
         
         <p>メッセージ：</p>
-        <textarea name="message" placeholder="お気に入りの商品。ぜひ再販してほしい！"></textarea><br>
-        
+        <textarea name="content" placeholder="素敵な投稿をどうぞ！"></textarea><br>
+        <div>
+        <label for="image">画像をアップロード:</label>
+        <div class="image">
+                <input type="file" name="image">
+            </div>
         <input type="submit" value="実行"/>
     </form>
 </body>
 </html>
+<!-- categories→Categoryモデルのデータ全て取得 -->
+ <!-- option→categoryテーブルのidプロパティをvalue,nameにnameプロパティ -->

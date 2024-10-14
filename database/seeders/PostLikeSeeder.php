@@ -15,7 +15,7 @@ class PostLikeSeeder extends Seeder
     public function run(): void
     {
         $post_likes=[
-            ['count'=>1,
+            [
             'post_id'=>1,
             'user_id'=>1]
         ];

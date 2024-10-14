@@ -20,14 +20,31 @@
 
         </h2>
     </x-slot>
-<p>ここにそのスレッドに関するポストを表示</p>
+<!-- コメント対象のスレッド -->
+<div class="thread-details border-4 border-black rounded-lg p-4 shadow-md mb-4">
+    <h2>スレッド詳細</h2>
+    <p>ユーザー: {{ $thread->user->name ?? '不明' }}</p>
+    <p>会社名: {{ $thread->company->name ?? '不明' }}</p>
+    <p>商品名: {{ $thread->product->name ?? '不明' }}</p>
+    <p>カテゴリー: {{ $thread->category->name ?? '不明' }}</p>
+    <p>いいね数：{{ $thread->thread_likes->count() ?? '不明'}}</p>
+    <p>内容: {{ $thread->content ?? '不明' }}</p>
+</div>
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif 
+<h3>コメント一覧</h3>
 <div class="grid grid-cols-1 gap-4">
             @foreach($eachpost as $post)
                 <div class="border-4 border-black rounded-lg p-4 shadow-md">
                     <p>ユーザー: {{ $post->user->name ?? '不明' }}</p>
                     <p>コメント: {{ $post->content ?? '不明' }}</p>
+                    <p>作成日: {{ $post->created_at ?? '不明' }}</p>
                     <p>いいね数: {{ $post->post_likes->count() ?? '不明' }}</p>
                 </div>    
             @endforeach
         </div>
+@include('please.new_post')
 </x-app-layout>

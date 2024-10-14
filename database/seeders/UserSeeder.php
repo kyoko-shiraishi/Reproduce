@@ -17,10 +17,20 @@ class UserSeeder extends Seeder
        DB::table('users')->insert([
         'name'=>'響子',
         'email'=>'kyon0704@docomo.ne.jp',
-        'age'=>'22',
-        'gender'=>'female',
+        'prefecture_id'=>1,
+        'age'=>22,
+        // 'gender'=>'',
         'email_verified_at' => now(),
         'password' => Hash::make('password123'),
+       ]);
+       DB::table('users')->insert([
+        'name'=>'ドラえもん',
+        'email'=>'emon@dora',
+        'prefecture_id'=>1,
+        'age'=>10,
+        // 'gender'=>'',
+        'email_verified_at' => now(),
+        'password' => Hash::make('21century'),
        ]);
     }
 }
