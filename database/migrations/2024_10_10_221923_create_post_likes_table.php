@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('post_likes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('count')->default(0);
+            
             $table->unsignedBigInteger('post_id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade'); // 外部キー制約にON DELETE CASCADEを追加

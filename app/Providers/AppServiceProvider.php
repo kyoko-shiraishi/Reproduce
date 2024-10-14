@@ -9,6 +9,7 @@ class AppServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        // \URL::forceScheme('https');  
         // すべてのビューにカテゴリを渡す
         View::composer('*', function ($view) {
             $categories = Category::all();
