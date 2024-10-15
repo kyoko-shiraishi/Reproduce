@@ -12,11 +12,9 @@ use Cloudinary;
 
 class NewController extends Controller
 {
-    public function category()
-    {
-        $categories = Category::all();
-        return view('new_thread_create', compact('categories'));
-    }
+
+    
+
 
     public function thread_store(Request $request)
     {
@@ -79,6 +77,7 @@ $product = Product::firstOrCreate(
 
         // 投稿の詳細ページにリダイレクト
         return redirect('/home');
+
     }
     public function new_post_create($id)
     {
@@ -89,6 +88,8 @@ $product = Product::firstOrCreate(
         // ビューにスレッド情報を渡す
         return view('please.new_post_create', compact('thread'));
     }
+
+
         
     public function post_store(Request $request, $threadId)
 {
@@ -106,6 +107,7 @@ $product = Product::firstOrCreate(
 
     // スレッドの詳細ページにリダイレクト
     return redirect()->route('post', $threadId)->with('success', 'コメントが投稿されました！');
+
 }
 
 

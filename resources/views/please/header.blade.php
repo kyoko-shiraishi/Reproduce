@@ -8,5 +8,3 @@
     @include('please.navi')
     @include('please.search')
 @endsection   
-
-

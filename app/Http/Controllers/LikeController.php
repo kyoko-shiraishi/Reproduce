@@ -2,6 +2,8 @@
 
 
 
+
+
 namespace App\Http\Controllers;
 
 use App\Models\Thread;
@@ -34,6 +36,7 @@ class LikeController extends Controller
         //ビューにその記事のいいね数を渡すため、いいね数を計算しています。
         $thread = Thread::where('id', $thread_id)->first();
         $likesCount = $thread->thread_likes->count();
+
 
         $param = [
             'likesCount' =>  $likesCount,

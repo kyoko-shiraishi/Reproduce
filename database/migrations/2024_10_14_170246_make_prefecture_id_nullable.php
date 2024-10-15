@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('prefectures', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->unsignedBigInteger('prefecture_id')->nullable()->change();
         });
     }
 
@@ -23,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('prefectures');
+        Schema::table('users', function (Blueprint $table) {
+            $table->unsignedBigInteger('prefecture_id')->nullable(false)->change();
+        });
     }
-
 };
-

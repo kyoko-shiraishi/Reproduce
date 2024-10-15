@@ -41,4 +41,6 @@
 </body>
 </html>
 <!-- categories→Categoryモデルのデータ全て取得 -->
+
  <!-- option→categoryテーブルのidプロパティをvalue,nameにnameプロパティ -->
+

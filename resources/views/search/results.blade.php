@@ -41,8 +41,11 @@
                     <p>{{ $thread->content }}</p>
                     <p>投稿：{{ $thread->created_at ? $thread->created_at->format('Y年m月d日 H:i:s') : '不明' }}</p>
                     <p>いいね数: {{ $thread->thread_likes->count() }}</p>
-                    <p>コメント数: {{ $thread->posts->count() }}</p>
-                    <img src="{{ $thread->image }}" alt="画像が読み込めません。">
+
+                    <div>
+                <img src="{{ $thread->image }}" >
+                </div>
+
                 </div>
             </a>    
             @endforeach
