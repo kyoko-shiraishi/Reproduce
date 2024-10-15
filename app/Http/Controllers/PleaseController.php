@@ -7,7 +7,9 @@ use App\Models\Thread;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use App\Events\ThreadLiked;
+
 use App\Models\Category;
+
 
 class PleaseController extends Controller
 {
@@ -46,7 +48,7 @@ class PleaseController extends Controller
         $categories = Category::all();
         return view('please.new_thread_create', compact('categories'));
     }
-
+<
     public function new_post_create(){
         return view('please.new_post_create');
     }
@@ -69,6 +71,7 @@ class PleaseController extends Controller
     }
 
     return redirect()->back()->with('status', '選択したスレッドとポストが削除されました。');
+
 }
 
 }

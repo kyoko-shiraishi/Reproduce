@@ -1,10 +1,18 @@
 <?php
+
+
+
+
+
 namespace App\Http\Controllers;
+
 use App\Models\Thread;
 use App\Models\ThreadLike;
 use Illuminate\Http\Request;
+
 class LikeController extends Controller
 {
+
     public function likeThread(Request $request,ThreadLike $thread_like)
     {
         $user_id = \Auth::id();
@@ -28,6 +36,8 @@ class LikeController extends Controller
         //ビューにその記事のいいね数を渡すため、いいね数を計算しています。
         $thread = Thread::where('id', $thread_id)->first();
         $likesCount = $thread->thread_likes->count();
+
+
         $param = [
             'likesCount' =>  $likesCount,
         ];

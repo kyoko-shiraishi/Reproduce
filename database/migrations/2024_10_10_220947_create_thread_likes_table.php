@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('thread_likes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('count')->default(0);
+            
             $table->unsignedBigInteger('thread_id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('thread_id')->references('id')->on('threads');

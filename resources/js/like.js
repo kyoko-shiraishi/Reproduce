@@ -27,4 +27,6 @@ likeBtn.addEventListener("click", async (e) => {
                 "処理が失敗しました。画面を再読み込みし、通信環境の良い場所で再度お試しください。"
             )
         );
+
 });
+

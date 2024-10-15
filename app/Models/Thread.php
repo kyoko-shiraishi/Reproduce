@@ -46,4 +46,6 @@ class Thread extends Model
             return false;
         }
     }
+
 }
+

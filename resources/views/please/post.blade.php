@@ -1,6 +1,8 @@
 <!-- スレッドクリック→遷移先のビュー -->
  <!-- ヘッダー（検索バー）ビュー -->
+
  <x-app-layout>
+
 <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <!-- ヘッダーに検索バー -->
@@ -29,7 +31,9 @@
     <p>カテゴリー: {{ $thread->category->name ?? '不明' }}</p>
     <p>いいね数：{{ $thread->thread_likes->count() ?? '不明'}}</p>
     <p>内容: {{ $thread->content ?? '不明' }}</p>
+
     <img src="{{ $thread->image }}" >
+
 </div>
 @if (session('success'))
     <div class="alert alert-success">
@@ -44,9 +48,11 @@
                     <p>コメント: {{ $post->content ?? '不明' }}</p>
                     <p>作成日: {{ $post->created_at ?? '不明' }}</p>
                     <p>いいね数: {{ $post->post_likes->count() ?? '不明' }}</p>
-                    
+
                 </div>    
             @endforeach
         </div>
 @include('please.new_post')
+
 </x-app-layout>
+

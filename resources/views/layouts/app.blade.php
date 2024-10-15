@@ -11,7 +11,7 @@
         <!-- Fonts -->
         <script src="https://kit.fontawesome.com/e7550042f0.js" crossorigin="anonymous"></script>
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://kit.fontawesome.com/e7550042f0.js" crossorigin="anonymous"></script>
 
         <style>
         .each {
