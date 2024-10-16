@@ -69,5 +69,3 @@ Route::post('/delete_selected',[PleaseController::class,'delete_selected'])->nam
 
 Route::post('/thread/like', [LikeController::class, 'likeThread']);
 
-
-

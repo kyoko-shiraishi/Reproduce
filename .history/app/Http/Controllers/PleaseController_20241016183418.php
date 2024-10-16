@@ -46,7 +46,6 @@ class PleaseController extends Controller
 
         
             // スレッドを取得
-            // withCount はリレーションの名前（この場合は thread_likes）を基にカウントするだけで、thread_likes_count という属性を自動的に生成してくれる
             $all_threads = Thread::withCount('thread_likes')
                 ->when($sort === 'new', function ($query) {
                     return $query->orderBy('created_at', 'desc'); // 新しい順
