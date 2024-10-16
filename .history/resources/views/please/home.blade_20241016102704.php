@@ -20,13 +20,11 @@
 
         </h2>
     </x-slot>
-<h2>スレッド一覧</h2>
+<h2>スレッド</h2>
 <div class="each">
 <ul>
     @foreach ($all_threads as $thread)
-
-    <div class="border-4 border-blue-400 rounded-lg p-4 shadow-md flex items-start">
-
+    <div class="thread-details border-4 border-black rounded-lg p-4 shadow-md mb-4">
     <li>
         <a href="{{ route('post', ['id' => $thread->id]) }}">
                 <strong>ユーザー:</strong> {{ $thread->user->name }}<br>
@@ -40,7 +38,8 @@
                 <strong>コメント数: {{ $thread->posts->count() }}</strong> <!-- コメント数を表示 -->
                 <div>
                 <img src="{{ $thread->image }}" >
-                </div>          
+                </div>
+    </div>           
         </a>
         @if($thread->isLikedByAuthUser())
             {{-- こちらがいいね済の際に表示される方で、likedクラスが付与してあることで星に色がつきます --}}
@@ -56,9 +55,6 @@
             </div>
         @endif
     </li>
-
-</div>
-
     <hr>
     @endforeach
 </ul>

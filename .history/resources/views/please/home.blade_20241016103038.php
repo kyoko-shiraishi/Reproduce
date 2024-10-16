@@ -20,13 +20,11 @@
 
         </h2>
     </x-slot>
-<h2>スレッド一覧</h2>
+<h2>スレッド</h2>
 <div class="each">
 <ul>
     @foreach ($all_threads as $thread)
-
-    <div class="border-4 border-blue-400 rounded-lg p-4 shadow-md flex items-start">
-
+    <div class="thread-details border-3 border-[#FFCC66] rounded-lg p-4 shadow-md mb-4">
     <li>
         <a href="{{ route('post', ['id' => $thread->id]) }}">
                 <strong>ユーザー:</strong> {{ $thread->user->name }}<br>
@@ -56,9 +54,7 @@
             </div>
         @endif
     </li>
-
-</div>
-
+    </div> 
     <hr>
     @endforeach
 </ul>
