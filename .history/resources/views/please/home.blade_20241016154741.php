@@ -64,7 +64,14 @@
 </ul>
 </div>
 <script>
-
+//     let likeBtn_list=[];
+// //    console.log(`{{$all_threads}}`);
+// const thread_lists=`{{$all_threads}}`;
+// // console.log(thread_lists);
+// thread_lists.forEach((element) => {
+//     likeBtn_list[element.id]=docuemnt.getElementById(element.id);
+//     console.log(likeBtn_list);
+// });
    
     //いいねボタンのhtml要素を取得します。
         const likeBtns = document.querySelectorAll('.like-btn');

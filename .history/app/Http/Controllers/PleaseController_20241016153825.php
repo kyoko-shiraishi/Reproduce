@@ -32,7 +32,7 @@ class PleaseController extends Controller
     public function home()
     {
         // 1ページあたり10件のスレッドを表示
-        $all_threads = Thread::paginate(5);
+        $all_threads = Thread::paginate(10);
         return view('please.home',compact('all_threads'));
     
     }

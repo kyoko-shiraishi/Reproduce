@@ -1,11 +1,11 @@
-
+<!-- ヘッダー（検索バー）ビュー -->
 <x-app-layout>
 <x-slot name="header">
 @vite(['resources/css/app.css', 'resources/js/app.js'])
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            
+            <!-- ヘッダーに検索バー -->
             <p>検索してね</p>
-            <form action="{{ route('search.results') }}" method="GET"> 
+            <form action="{{ route('search.results') }}" method="GET"> <!-- アクションを指定 -->
     <input type="text" name="company_name" value="{{ old('company_name') }}" placeholder="会社名">
     <input type="text" name="product_name" value="{{ old('product_name') }}" placeholder="製品名">
     <select name="category_id">
@@ -64,7 +64,14 @@
 </ul>
 </div>
 <script>
-
+//     let likeBtn_list=[];
+// //    console.log(`{{$all_threads}}`);
+// const thread_lists=`{{$all_threads}}`;
+// // console.log(thread_lists);
+// thread_lists.forEach((element) => {
+//     likeBtn_list[element.id]=docuemnt.getElementById(element.id);
+//     console.log(likeBtn_list);
+// });
    
     //いいねボタンのhtml要素を取得します。
         const likeBtns = document.querySelectorAll('.like-btn');
