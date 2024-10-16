@@ -48,7 +48,7 @@ class PleaseController extends Controller
         $categories = Category::all();
         return view('please.new_thread_create', compact('categories'));
     }
-
+<
     public function new_post_create(){
         return view('please.new_post_create');
     }

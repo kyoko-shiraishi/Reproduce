@@ -59,21 +59,9 @@
 </ul>
 </div>
 <script>
-//     let likeBtn_list=[];
-// //    console.log(`{{$all_threads}}`);
-// const thread_lists=`{{$all_threads}}`;
-// // console.log(thread_lists);
-// thread_lists.forEach((element) => {
-//     likeBtn_list[element.id]=docuemnt.getElementById(element.id);
-//     console.log(likeBtn_list);
-// });
-   
     //いいねボタンのhtml要素を取得します。
-        const likeBtns = document.querySelectorAll('.like-btn');
-        // 配列になる→forEacnでまわす
-        // console.log(likeBtns);
+        const likeBtn = document.querySelector('.like-btn');
         //いいねボタンをクリックした際の処理を記述します。 
-        likeBtns.forEach(likeBtn => {
         likeBtn.addEventListener('click',async(e)=>{
             console.log('いいねおされた');
             //クリックされた要素を取得しています。
@@ -104,7 +92,7 @@
             .catch(
             //処理がなんらかの理由で失敗した場合に実施したい処理を記述します。
             ()=>alert('処理が失敗しました。画面を再読み込みし、通信環境の良い場所で再度お試しください。'))
-        });
+
         })
     </script>
 @include('please.new_thread')

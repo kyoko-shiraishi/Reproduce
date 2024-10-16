@@ -1,5 +1,4 @@
 <x-app-layout>
-@vite(['resources/css/app.css', 'resources/js/app.js'])
     <h2>削除したいスレッドとポストを選択してください</h2>
 
     @if(session('status'))

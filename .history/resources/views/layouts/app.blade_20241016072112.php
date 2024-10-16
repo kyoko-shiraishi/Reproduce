@@ -8,10 +8,15 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-      
+        <!-- Fonts -->
+        <script src="https://kit.fontawesome.com/e7550042f0.js" crossorigin="anonymous"></script>
         <!-- Scripts -->
         <script src="https://kit.fontawesome.com/e7550042f0.js" crossorigin="anonymous"></script>
+        <!-- Styles -->
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}" defer></script>
         <style>
         .each {
             width: 100%; /* 幅を100%に設定 */

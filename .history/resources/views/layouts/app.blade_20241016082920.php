@@ -8,7 +8,8 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-      
+        <!-- Fonts -->
+        <script src="https://kit.fontawesome.com/e7550042f0.js" crossorigin="anonymous"></script>
         <!-- Scripts -->
         <script src="https://kit.fontawesome.com/e7550042f0.js" crossorigin="anonymous"></script>
 
