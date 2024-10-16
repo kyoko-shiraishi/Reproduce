@@ -24,7 +24,7 @@
 <div class="each">
 <ul>
     @foreach ($all_threads as $thread)
-    <div class="thread-details border-4 border-black rounded-lg p-4 shadow-md mb-4">
+    <div class="thread-details border-3 border-[#FFCC66] rounded-lg p-4 shadow-md mb-4">
     <li>
         <a href="{{ route('post', ['id' => $thread->id]) }}">
                 <strong>ユーザー:</strong> {{ $thread->user->name }}<br>
