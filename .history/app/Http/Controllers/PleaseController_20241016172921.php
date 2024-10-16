@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Thread; 
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
-use App\Models\ThreadLike;
+use App\Events\ThreadLiked;
 
 use App\Models\Category;
 
@@ -39,15 +39,9 @@ class PleaseController extends Controller
         public function home(Request $request)
         {
             $sort = $request->input('sort', 'new'); // デフォルトは「新しい順」
-        //     $like = new ThreadLike();
-        //     $like->thread_id = $thread_id;
-        //     $thread = Thread::where('id', $thread_id)->first();
-        // $likesCount = $thread->thread_likes->count();
-
         
             // スレッドを取得
-            // withCount はリレーションの名前（この場合は thread_likes）を基にカウントするだけで、thread_likes_count という属性を自動的に生成してくれる
-            $all_threads = Thread::withCount('thread_likes')
+            $all_threads = Thread::withCount('thread_likes') // likesリレーションのカウントを取得
                 ->when($sort === 'new', function ($query) {
                     return $query->orderBy('created_at', 'desc'); // 新しい順
                 })
@@ -55,9 +49,9 @@ class PleaseController extends Controller
                     return $query->orderBy('created_at', 'asc'); // 古い順
                 })
                 ->when($sort === 'popular', function ($query) {
-                    return $query->orderBy('thread_likes_count', 'desc'); // いいねが多い順
+                    return $query->orderBy('count', 'desc'); // いいねが多い順
                 })
-                ->paginate(5); 
+                ->paginate(5); // ページネーション
         
             return view('please.home', compact('all_threads', 'sort'));
         

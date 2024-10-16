@@ -18,9 +18,9 @@
     <div class="sorting-dropdown">
     <label for="sort">並び替え:</label>
     <select id="sort" name="sort" onchange="location = this.value;">
-        <option value="{{ route('home', ['sort' => 'new']) }}" {{ $sort === 'new' ? 'selected' : '' }}>新しい順</option>
-        <option value="{{ route('home', ['sort' => 'old']) }}" {{ $sort === 'old' ? 'selected' : '' }}>古い順</option>
-        <option value="{{ route('home', ['sort' => 'popular']) }}" {{ $sort === 'popular' ? 'selected' : '' }}>人気順</option>
+        <option value="{{ route('threads.index', ['sort' => 'new']) }}" {{ $sort === 'new' ? 'selected' : '' }}>新しい順</option>
+        <option value="{{ route('threads.index', ['sort' => 'old']) }}" {{ $sort === 'old' ? 'selected' : '' }}>古い順</option>
+        <option value="{{ route('threads.index', ['sort' => 'popular']) }}" {{ $sort === 'popular' ? 'selected' : '' }}>人気順</option>
     </select>
 </div>
 </form>
