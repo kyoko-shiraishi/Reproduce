@@ -24,7 +24,7 @@
 <div class="each">
 <ul>
     @foreach ($all_threads as $thread)
-    <div class="border-4 border-blue-400 rounded-lg p-4 shadow-md flex items-start">
+    <div class="border-4 border-orange-200 rounded-lg p-4 shadow-md flex items-start">
     <li>
         <a href="{{ route('post', ['id' => $thread->id]) }}">
                 <strong>ユーザー:</strong> {{ $thread->user->name }}<br>

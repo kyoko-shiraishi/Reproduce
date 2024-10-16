@@ -28,7 +28,7 @@
         }
 
         .each li {
-            /* border: 1px solid #ccc; 各スレッドにボーダーを追加 */
+            border: 1px solid #ccc; /* 各スレッドにボーダーを追加 */
             padding: 0px; /* 内側のパディングを設定 */
             margin-bottom: 10px; /* 各リスト項目の下にマージンを追加 */
             width: 100%; /* 各リスト項目も幅を100%に設定 */
