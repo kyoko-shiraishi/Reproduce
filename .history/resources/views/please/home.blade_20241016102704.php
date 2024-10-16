@@ -38,7 +38,8 @@
                 <strong>コメント数: {{ $thread->posts->count() }}</strong> <!-- コメント数を表示 -->
                 <div>
                 <img src="{{ $thread->image }}" >
-                </div>          
+                </div>
+    </div>           
         </a>
         @if($thread->isLikedByAuthUser())
             {{-- こちらがいいね済の際に表示される方で、likedクラスが付与してあることで星に色がつきます --}}
@@ -54,7 +55,6 @@
             </div>
         @endif
     </li>
-    </div> 
     <hr>
     @endforeach
 </ul>
