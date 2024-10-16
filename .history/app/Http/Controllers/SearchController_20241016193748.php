@@ -31,7 +31,7 @@ class SearchController extends Controller
     
         // 製品名でフィルタリング
         if ($productName) {
-            $product = Product::where('name', 'LIKE', '%' . $productName . '%')->get();
+            $product = Product::where('name', 'LIKE', '%' . $productName . '%')->first();
             if ($product) {
                 $query->where('product_id', $product->id);
             } else {
