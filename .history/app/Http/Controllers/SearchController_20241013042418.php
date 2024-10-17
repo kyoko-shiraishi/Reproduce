@@ -21,7 +21,7 @@ class SearchController extends Controller
     
         // 会社名でフィルタリング
         if ($companyName) {
-            $company = Company::where('name', 'LIKE', '%' . $companyName . '%')->get();
+            $company = Company::where('name', 'LIKE', '%' . $companyName . '%')->first();
             if ($company) {
                 $query->where('company_id', $company->id);
             } else {
@@ -31,7 +31,7 @@ class SearchController extends Controller
     
         // 製品名でフィルタリング
         if ($productName) {
-            $product = Product::where('name', 'LIKE', '%' . $productName . '%')->get();
+            $product = Product::where('name', 'LIKE', '%' . $productName . '%')->first();
             if ($product) {
                 $query->where('product_id', $product->id);
             } else {
