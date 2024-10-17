@@ -22,6 +22,13 @@ class NewController extends Controller
         // users テーブルの name カラムが $request->user の値と一致するレコードを検索
         $user = Auth::user();
 
+        
+        
+        if (!$user) {
+            return redirect()->back()->withErrors(['user' => '指定されたユーザーが見つかりません。']);
+        }
+
+ 
         $company = Company::firstOrCreate(
             ['name' => $request->company],
             [] // 新規作成時に追加の属性が必要な場合に使用
@@ -29,10 +36,10 @@ class NewController extends Controller
 
         // 製品名を取得し、存在しない場合は新規作成
        
-        $product = Product::firstOrCreate(
-            ['name' => $request->product],
-            ['category_id' => $request->category_id] // 新規作成時にカテゴリーIDを指定
-        );
+$product = Product::firstOrCreate(
+    ['name' => $request->product],
+    ['category_id' => $request->category_id] // 新規作成時にカテゴリーIDを指定
+);
 
 
         
@@ -49,7 +56,7 @@ class NewController extends Controller
             'company' => 'required|string|max:255',
             'product' => 'required|string|max:255',
             'category_id' => 'required|integer',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048' 
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048' // 画像のバリデーションも追加
         ]);
        
         //cloudinaryへ画像を送信し、画像のURLを$image_urlに代入している

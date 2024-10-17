@@ -49,7 +49,7 @@ class NewController extends Controller
             'company' => 'required|string|max:255',
             'product' => 'required|string|max:255',
             'category_id' => 'required|integer',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048' 
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048' 
         ]);
        
         //cloudinaryへ画像を送信し、画像のURLを$image_urlに代入している
