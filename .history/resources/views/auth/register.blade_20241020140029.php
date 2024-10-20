@@ -64,16 +64,14 @@
 </div>
 
 <script>
-    // 生成したageStringをサーバーに送るためのフォームであるname="age"のデータとして入れてあげる
 function updateAge() {
     const year = document.getElementById('year').value;
-    const month = document.getElementById('month').value.padStart(2, '0'); // padStart:2桁になるまで先頭に0追加
-    const day = document.getElementById('day').value.padStart(2, '0'); 
+    const month = document.getElementById('month').value.padStart(2, '0'); // 月を2桁に
+    const day = document.getElementById('day').value.padStart(2, '0'); // 日を2桁に
 
-
-    if (year && month && day) {// 全ての値が入っていたら
+    if (year && month && day) {
         const ageString = `${year}-${month}-${day}`; // "YYYY-MM-DD"形式に結合
-        document.getElementById('age').value = ageString; // 隠しフィールド（サーバー送信用）ageの中身として設定
+        document.getElementById('age').value = ageString; // 隠しフィールドに設定
     } else {
         document.getElementById('age').value = ''; // どれかが未選択の場合はクリア
     }

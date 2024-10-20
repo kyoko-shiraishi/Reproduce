@@ -50,14 +50,11 @@
         }
         .responsive-img {
             max-width: 100%; /* 画像の最大幅を親要素に合わせる */
-            width: 300px; /* 画像の幅を固定 */
-            height: 200px; /* 画像の高さを固定 */
+            height: auto; /* 画像の縦横比を保ちながら高さを自動調整 */
             object-fit: cover; /* 縦横比を維持しつつ、指定したサイズに収まるように調整 */
             border-radius: 8px; /* 角を少し丸くしたい場合 */
         }
     </style>
-  
- 
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">

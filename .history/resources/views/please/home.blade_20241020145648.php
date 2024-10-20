@@ -7,7 +7,8 @@
                 @csrf
                 <input type="text" id="company_name" name="company_name" value="{{ old('company_name') }}" placeholder="会社名">
                 <input type="text" name="product_name" value="{{ old('product_name') }}" placeholder="製品名">
-               
+                <!-- 隠しフィールド -->
+                <input type="hidden" id="normalized_company_name" name="normalized_company_name" />
 
                 <select name="category_id">
                     <option value="">すべてのカテゴリ</option>
@@ -67,8 +68,15 @@
         </ul>
     </div>
 
-   
-<script>
+    <script src="node_modules/wanakana/dist/wanakana.min.js"></script>
+    <script>
+        document.getElementById('company_name').addEventListener('input', function() {
+            const companyName = this.value;
+            const normalizedCompanyName = WanaKana.toHiragana(companyName);
+            document.getElementById('normalized_company_name').value = normalizedCompanyName; // 隠しフィールドに設定
+            console.log(normalizedCompanyName); // デバッグ用
+        });
+
         // いいねボタンのhtml要素を取得
         const likeBtns = document.querySelectorAll('.like-btn');
         likeBtns.forEach(likeBtn => {
@@ -92,10 +100,8 @@
                 .catch(() => alert('処理が失敗しました。画面を再読み込みし、通信環境の良い場所で再度お試しください。'));
             });
         });
-</script>
+    </script>
 
-@include('please.new_thread')
-    <div class="flex justify-center">
-        {{ $all_threads->links() }}
-    </div>
+    @include('please.new_thread')
+    {{ $all_threads->links() }}
 </x-app-layout>

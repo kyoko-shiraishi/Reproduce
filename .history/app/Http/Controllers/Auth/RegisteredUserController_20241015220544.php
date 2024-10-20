@@ -40,17 +40,10 @@ class RegisteredUserController extends Controller
             'prefecture_id' => ['required', 'exists:prefectures,id'], // 追加: 都道府県IDの検証
         ]);
         
-         // バリデーション
-    $request->validate([
-        'year' => 'required|integer|between:1900,' . date('Y'),
-        'month' => 'required|integer|between:1,12',
-        'day' => 'required|integer|between:1,31',
-    ]);
-
-    $now = date('Ymd');
-    $birthday = $request->age; // "YYYY-MM-DD"形式
-    $birthday = str_replace("-", "", $birthday); // "-"を削除
-    $age = floor(($now - $birthday) / 10000); // 年齢を計算
+        $now = date('Ymd');
+        $birthday = $request->age;
+        $birthday = str_replace("-", "", $birthday);
+        $age = floor(($now - $birthday) / 10000);
        
         $user = User::create([
             'name' => $request->name,

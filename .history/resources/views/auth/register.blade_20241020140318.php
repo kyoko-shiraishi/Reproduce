@@ -64,7 +64,6 @@
 </div>
 
 <script>
-    // 生成したageStringをサーバーに送るためのフォームであるname="age"のデータとして入れてあげる
 function updateAge() {
     const year = document.getElementById('year').value;
     const month = document.getElementById('month').value.padStart(2, '0'); // padStart:2桁になるまで先頭に0追加

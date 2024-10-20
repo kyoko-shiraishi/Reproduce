@@ -57,7 +57,7 @@
         }
     </style>
   
- 
+  <script src="node_modules/wanakana/dist/wanakana.min.js"></script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">

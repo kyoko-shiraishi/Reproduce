@@ -68,7 +68,7 @@
     </div>
 
    
-<script>
+
         // いいねボタンのhtml要素を取得
         const likeBtns = document.querySelectorAll('.like-btn');
         likeBtns.forEach(likeBtn => {
@@ -92,10 +92,8 @@
                 .catch(() => alert('処理が失敗しました。画面を再読み込みし、通信環境の良い場所で再度お試しください。'));
             });
         });
-</script>
+    </script>
 
-@include('please.new_thread')
-    <div class="flex justify-center">
-        {{ $all_threads->links() }}
-    </div>
+    @include('please.new_thread')
+    {{ $all_threads->links() }}
 </x-app-layout>

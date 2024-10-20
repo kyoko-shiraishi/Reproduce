@@ -42,38 +42,40 @@
     </div>
 
      <!-- age -->
-   
-<div class="mt-4">
-        <x-input-label for="year" :value="__('西暦')" />
-        <select name="year" id="year" required onchange="updateAge()">
-            <option value="" disabled selected>-- 西暦を選択 --</option>
-            @for ($i = 1900; $i <= date('Y'); $i++)
-                <option value="{{ $i }}" {{ old('year') == $i ? 'selected' : '' }}>{{ $i }}</option>
-            @endfor
-        </select>
-        <x-input-error :messages="$errors->get('year')" class="mt-2" />
+     
+            <!-- <input type="date" name="age" value="{{old('age')}}" required>
+        <x-input-error :messages="$errors->get('gender')" class="mt-2" /> -->
+        <div class="mt-4">
+    <x-input-label for="year" :value="__('西暦')" />
+    <select name="year" id="year" required onchange="updateAge()">
+        <option value="" disabled selected>-- 西暦を選択 --</option>
+        @for ($i = 1900; $i <= date('Y'); $i++)
+            <option value="{{ $i }}" {{ old('year') == $i ? 'selected' : '' }}>{{ $i }}</option>
+        @endfor
+    </select>
+    <x-input-error :messages="$errors->get('year')" class="mt-2" />
 
-        <x-input-label for="month" :value="__('生まれ月')" class="mt-4" />
-        <input type="text" name="month" id="month" value="{{ old('month') }}" placeholder="例: 1または01" required pattern="^(0?[1-9]|1[0-2])$" onchange="updateAge()" />
-        <x-input-error :messages="$errors->get('month')" class="mt-2" />
+    <x-input-label for="month" :value="__('生まれ月')" class="mt-4" />
+    <input type="text" name="month" id="month" value="{{ old('month') }}" placeholder="例: 1または01" required pattern="^(0?[1-9]|1[0-2])$" onchange="updateAge()" />
+    <x-input-error :messages="$errors->get('month')" class="mt-2" />
 
-        <x-input-label for="day" :value="__('日にち')" class="mt-4" />
-        <input type="text" name="day" id="day" value="{{ old('day') }}" placeholder="例: 1または01" required pattern="^(0?[1-9]|[12][0-9]|3[01])$" onchange="updateAge()" />
-        <x-input-error :messages="$errors->get('day')" class="mt-2" />
+    <x-input-label for="day" :value="__('日にち')" class="mt-4" />
+    <input type="text" name="day" id="day" value="{{ old('day') }}" placeholder="例: 1または01" required pattern="^(0?[1-9]|[12][0-9]|3[01])$" onchange="updateAge()" />
+    <x-input-error :messages="$errors->get('day')" class="mt-2" />
+
+    <!-- 隠しフィールドを追加 -->
     <input type="hidden" name="age" id="age" value="{{ old('age') }}">
 </div>
 
 <script>
-    // 生成したageStringをサーバーに送るためのフォームであるname="age"のデータとして入れてあげる
 function updateAge() {
     const year = document.getElementById('year').value;
-    const month = document.getElementById('month').value.padStart(2, '0'); // padStart:2桁になるまで先頭に0追加
-    const day = document.getElementById('day').value.padStart(2, '0'); 
+    const month = document.getElementById('month').value.padStart(2, '0'); // 月を2桁に
+    const day = document.getElementById('day').value.padStart(2, '0'); // 日を2桁に
 
-
-    if (year && month && day) {// 全ての値が入っていたら
+    if (year && month && day) {
         const ageString = `${year}-${month}-${day}`; // "YYYY-MM-DD"形式に結合
-        document.getElementById('age').value = ageString; // 隠しフィールド（サーバー送信用）ageの中身として設定
+        document.getElementById('age').value = ageString; // 隠しフィールドに設定
     } else {
         document.getElementById('age').value = ''; // どれかが未選択の場合はクリア
     }

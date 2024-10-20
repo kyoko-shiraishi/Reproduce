@@ -56,8 +56,6 @@
             border-radius: 8px; /* 角を少し丸くしたい場合 */
         }
     </style>
-  
- 
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">

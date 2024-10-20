@@ -94,8 +94,6 @@
         });
 </script>
 
-@include('please.new_thread')
-    <div class="flex justify-center">
-        {{ $all_threads->links() }}
-    </div>
+    @include('please.new_thread')
+    {{ $all_threads->links() }}
 </x-app-layout>
