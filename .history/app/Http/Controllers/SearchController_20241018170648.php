@@ -21,29 +21,23 @@ class SearchController extends Controller
     
         // 会社名でフィルタリング
         if ($companyName) {
-            $companies = Company::where('name', 'LIKE', '%' . $companyName . '%')->get();
-            
-            foreach($companies as $company){
+            $company = Company::where('name', 'LIKE', '%' . $companyName . '%')->get();
             if ($company) {
                 $query->where('company_id', $company->id);
             } else {
                 $query->whereNull('company_id');
             }
         }
-    }
-   
+    dd("aaaaa");
         // 製品名でフィルタリング
         if ($productName) {
-            $products = Product::where('name', 'LIKE', '%' . $productName . '%')->get();
-            foreach($products as $product){
-                if ($product) {
-                    $query->where('product_id', $product->id);
-                } else {
-                    $query->whereNull('product_id');
-                }
+            $product = Product::where('name', 'LIKE', '%' . $productName . '%')->get();
+            if ($product) {
+                $query->where('product_id', $product->id);
+            } else {
+                $query->whereNull('product_id');
             }
-            }
-           
+        }
     
         // カテゴリでフィルタリング
         if ($request->filled('category_id')) {
