@@ -59,7 +59,7 @@ Route::get('/delete',[PleaseController::class,'delete_show'])->name('delete_show
 Route::post('/delete_selected',[PleaseController::class,'delete_selected'])->name('delete_selected');
 
 Route::post('/thread/like', [LikeController::class, 'likeThread']);
-Route::post('/post/like',[LikeController::class, 'LikePost']);
+Route::post('/post/like',[LikeController::class, 'likePost']);
 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

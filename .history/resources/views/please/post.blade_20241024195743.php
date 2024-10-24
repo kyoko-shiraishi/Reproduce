@@ -47,11 +47,7 @@
     @foreach($eachpost as $post)
         <div class=" border-4 border-blue-400 rounded-lg p-4 shadow-md flex flex-col items-start">
             
-           
-            <p>ユーザー: {{ $post->user->name ?? '不明' }}</p>
-            <p>コメント: {{ $post->content ?? '不明' }}</p>
-            <p>作成日: {{ $post->created_at ?? '不明' }}</p>
-             
+            
             <!-- いいね -->
             @if($post->isLikedByAuthUser())
                 <div class="flexbox">
@@ -64,6 +60,9 @@
                     <p class="count-num">{{ $post->post_likes->count() }}</p>
                 </div>
             @endif
+            <p>ユーザー: {{ $post->user->name ?? '不明' }}</p>
+            <p>コメント: {{ $post->content ?? '不明' }}</p>
+            <p>作成日: {{ $post->created_at ?? '不明' }}</p>
 
         </div>    
     @endforeach

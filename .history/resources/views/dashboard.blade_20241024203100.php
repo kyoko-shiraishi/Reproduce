@@ -14,7 +14,8 @@
                 </div>
             </div>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-4">
-                <p>使いかた</p>
+                <p>ホームページへ行きたい方は上部のアイコンをクリック！</p>
+                <p>企業の方はbusinessボタンからマーケティング用データもチェックできます</p>
             </div> 
         </div>
         

@@ -94,11 +94,8 @@
             justify-content:space-evenly;
         }
         .yoko p {
-            margin-right: 10px; /* 右側の間隔を設定 */
-        }
-        .yoko h3{
-            margin-right: 10px; 
-        }
+    margin-right: 10px; /* 右側の間隔を設定 */
+}
         .top-thread-1 {
         
             background: linear-gradient(45deg, #c0b283 0%, #c0b283 45%, #FEE9A0 70%, #c0b283 85%, #c0b283 90% 100%);

@@ -26,10 +26,10 @@ class Post extends Model
         $likersArr = array();
        
         //$thisは言葉の似た通り、クラス自身を指す。具体的にはこのPostクラスをインスタンス化した際の変数のことを指す。（後続のビューで登場する$postになります）
-        foreach($this->post_likes as $PostLike){
+        foreach($this->thread_likes as $threadLike){
             //array_pushメソッドで第一引数に配列、第二引数に配列に格納するデータを定義し、配列を作成できる。
             //今回は$likersArrという空の配列にいいねをした全てのユーザーのidを格納している。
-            array_push($likersArr,$PostLike->user_id);
+            array_push($likersArr,$threadLike->user_id);
 
         }
         //in_arrayメソッドを利用し、認証済ユーザーid（自身のid）が上記で作成した配列の中に存在するかどうか判定している
