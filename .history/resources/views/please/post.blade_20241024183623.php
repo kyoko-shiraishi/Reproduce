@@ -21,7 +21,7 @@
         </h2>
     </x-slot>
 <!-- コメント対象のスレッド -->
-<div class="thread-details border-4 border-blue-400 rounded-lg p-4 shadow-md mb-4">
+<div class="thread-details border-4 border-black rounded-lg p-4 shadow-md mb-4">
     <h2>スレッド詳細</h2>
     <p>ユーザー: {{ $thread->user->name ?? '不明' }}</p>
     <p>会社名: {{ $thread->company->name ?? '不明' }}</p>

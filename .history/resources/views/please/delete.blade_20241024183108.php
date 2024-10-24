@@ -1,13 +1,12 @@
 <x-app-layout>
 
-   
+    <h2>削除したいスレッドとコメントを選択してください</h2>
 
     @if(session('status'))
         <div class="alert alert-success">
             {{ session('status') }}
         </div>
         @else
-        <h2>削除したいスレッドとコメントを選択してください</h2>
         <form action="{{ route('delete_selected') }}" method="POST">
         @csrf
 
