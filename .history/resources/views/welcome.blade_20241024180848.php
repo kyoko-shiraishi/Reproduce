@@ -9,7 +9,6 @@
     font-size:60px;
 }
 .login-button{
-    margin:20px;
     display       : inline-block;
     border-radius : 5%;          /* 角丸       */
     font-size     : 18pt;        /* 文字サイズ */
@@ -30,7 +29,6 @@
   background    : #ffffff;     /* 文字色     */
 }
 .register-button{
-    margin:20px;
     display       : inline-block;
     border-radius : 5%;          /* 角丸       */
     font-size     : 18pt;        /* 文字サイズ */
