@@ -8,18 +8,18 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                     <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('home') }}">
-                        <img src="{{ asset('images/logo2.png') }}" class="block h-9 w-auto" alt="Logo">
-                    </a>
-                </div>
+
                     <x-nav-link :href="route('business')" :active="request()->routeIs('index')">
                         {{ __('Business') }}
                     </x-nav-link>
                 </div>
 
-               
+                <!-- Logo -->
+                <div class="shrink-0 flex items-center">
+                    <a href="{{ route('home') }}">
+                        <img src="{{ asset('images/logo2.png') }}" class="block h-9 w-auto" alt="Logo">
+                    </a>
+                </div>
             </div>
             
 

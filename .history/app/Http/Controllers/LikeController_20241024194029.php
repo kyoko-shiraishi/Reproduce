@@ -9,7 +9,6 @@ namespace App\Http\Controllers;
 use App\Models\Thread;
 use App\Models\ThreadLike;
 use Illuminate\Http\Request;
-use App\Models\Post;
 use App\Models\PostLike;
 
 class LikeController extends Controller
@@ -47,9 +46,7 @@ class LikeController extends Controller
         //ビューにいいね数を渡しています。名前は上記のlikesCountとなるため、フロントでlikesCountといった表記で受け取っているのがわかると思います。
         return response()->json($param);
     }
-    
     public function LikePost(Request $request,PostLike $post_like){
-       
         $user_id = \Auth::id();
         
         //jsのfetchメソッドで記事のidを送信しているため受け取ります。
@@ -64,8 +61,8 @@ class LikeController extends Controller
             $like = new PostLike();
             $like->post_id = $post_id;
             $like->user_id = $user_id;
+            
             $like->save();
-
         } else {
             //すでにいいねをしていた場合は、以下のようにpost_likesテーブルからレコードを削除します。
             PostLike::where('post_id', $post_id)->where('user_id', $user_id)->delete();

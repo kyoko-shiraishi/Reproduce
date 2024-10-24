@@ -13,8 +13,8 @@
                     {{ __("ログインに成功しました!") }}
                 </div>
             </div>
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-4">
-                <p>使いかた</p>
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg margin-top: 10px;">
+                あいうえお
             </div> 
         </div>
         

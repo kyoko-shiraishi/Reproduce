@@ -13,10 +13,11 @@
                     {{ __("ログインに成功しました!") }}
                 </div>
             </div>
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-4">
-                <p>使いかた</p>
-            </div> 
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg bottom">
+                <div class="p-6 text-gray-900">
+                    a
+                </div>
+            </div>
         </div>
-        
     </div>
 </x-app-layout>

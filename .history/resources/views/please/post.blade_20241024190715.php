@@ -24,14 +24,13 @@
 <div class="thread-details border-4 border-blue-400 rounded-lg p-4 shadow-md mb-4">
     <h2>スレッド詳細</h2>
     <p>ユーザー: {{ $thread->user->name ?? '不明' }}</p>
-    <img src="{{ $thread->image }}" >
-    <p>内容: {{ $thread->content ?? '不明' }}</p>
     <p>会社名: {{ $thread->company->name ?? '不明' }}</p>
     <p>商品名: {{ $thread->product->name ?? '不明' }}</p>
     <p>カテゴリー: {{ $thread->category->name ?? '不明' }}</p>
     <p>いいね数：{{ $thread->thread_likes->count() ?? '不明'}}</p>
+    <p>内容: {{ $thread->content ?? '不明' }}</p>
 
-    
+    <img src="{{ $thread->image }}" >
 
 </div>
 @if (session('success'))
@@ -46,12 +45,10 @@
 @else
     @foreach($eachpost as $post)
         <div class=" border-4 border-blue-400 rounded-lg p-4 shadow-md flex flex-col items-start">
-            
-           
             <p>ユーザー: {{ $post->user->name ?? '不明' }}</p>
             <p>コメント: {{ $post->content ?? '不明' }}</p>
             <p>作成日: {{ $post->created_at ?? '不明' }}</p>
-             
+            
             <!-- いいね -->
             @if($post->isLikedByAuthUser())
                 <div class="flexbox">
@@ -63,7 +60,7 @@
                     <i class="fa-regular fa-heart like-btn" id="{{ $post->id }}"></i>
                     <p class="count-num">{{ $post->post_likes->count() }}</p>
                 </div>
-            @endif
+                @endif
 
         </div>    
     @endforeach
@@ -76,9 +73,7 @@
             likeBtn.addEventListener('click', async (e) => {
                 const clickedEl = e.target;
                 clickedEl.classList.toggle('liked');
-                const PostId = clickedEl.id;
-                
-                
+                const threadId = clickedEl.id;
 
                 const res = await fetch('/post/like', {
                     method: 'POST',
@@ -89,12 +84,12 @@
                     body: JSON.stringify({ post_id: PostId })
                 })
                 .then(res => res.json())
-                
                 .then(data => {
                     clickedEl.nextElementSibling.innerHTML = data.likesCount;
                 })
+                dd(clickedEl.nextElementSibling.innerHTML);
                 .catch(() => alert('処理が失敗しました。画面を再読み込みし、通信環境の良い場所で再度お試しください。'));
-               
+                console.log('aiueo');
             });
         });
         </script>
