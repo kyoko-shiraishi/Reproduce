@@ -10,9 +10,9 @@ use App\Http\Controllers\NewController;
 use App\Http\Controllers\LikeController;
 
 // トップルート
-Route::get('/', function () { 
-    return view('welcome'); 
-});
+// Route::get('/', function () { 
+//     return view('welcome'); 
+// });
 
 
 

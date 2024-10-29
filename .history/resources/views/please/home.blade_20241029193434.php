@@ -84,7 +84,7 @@
                 const threadId = clickedEl.id;
                 console.log({{Auth::user()->id}},"あいうえお")
                 // if({{Auth::user()->id}}){
-                    const res = await fetch('/thread/like', {
+                    const res = await fetch('/thread/lik', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -94,26 +94,28 @@
                     })
                     .then(res => {
                     console.log(res)
-                         if (res.status ==419) {
-                            console.log("せんい");
-                        
-                         window.location.reload();
-                        return "skip";    
-                        }
+                        // if (res.status == 404){
+                        //     console.log("404")
+                        //     return "skip";
+                        // } else if (res.status ==419) {
+                        //     console.log("せんい");
+                        //     window.location.reload();
+                            
+                        // }
                         return res.json();
                     })
                     .then(data => {
                         console.log(data)
-                        if (data=='skip'){
-                            return "ok";
-
-                        }else{
                         clickedEl.nextElementSibling.innerHTML = data.likesCount;
-                    }
+                     
                     })
                     .catch(() => alert('処理が失敗しました。画面を再読み込みし、通信環境の良い場所で再度お試しください。'));
-                console.log('res.',res);
-                   
+                    if(1){
+                        console.log(res)   
+                    }
+                // }else{
+                //     console.log('セッション切れ')
+                // }
         });
     });
         document.addEventListener("DOMContentLoaded", function() {

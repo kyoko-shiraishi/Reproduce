@@ -92,28 +92,17 @@
                         },
                         body: JSON.stringify({ thread_id: threadId })
                     })
-                    .then(res => {
-                    console.log(res)
-                         if (res.status ==419) {
-                            console.log("せんい");
-                        
-                         window.location.reload();
-                        return "skip";    
-                        }
-                        return res.json();
-                    })
+                    .then(res => res.json())
                     .then(data => {
-                        console.log(data)
-                        if (data=='skip'){
-                            return "ok";
-
-                        }else{
                         clickedEl.nextElementSibling.innerHTML = data.likesCount;
-                    }
                     })
                     .catch(() => alert('処理が失敗しました。画面を再読み込みし、通信環境の良い場所で再度お試しください。'));
-                console.log('res.',res);
-                   
+                    if(!res.ok){
+                        console.log("a")   
+                    }
+                // }else{
+                //     console.log('セッション切れ')
+                // }
         });
     });
         document.addEventListener("DOMContentLoaded", function() {

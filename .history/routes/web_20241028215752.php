@@ -33,13 +33,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-
+Route::get('/home',[PleaseController::class,'home'])->name('home');
 
 
 // 認証が必要なルート
 Route::middleware('auth')->group(function () {
 // ホームページのルート
-Route::get('/home',[PleaseController::class,'home'])->name('home');
+// Route::get('/home',[PleaseController::class,'home'])->name('home');
 
 Route::get('/business',[PleaseController::class,'business'])->name('business');
 Route::get('/infomation',[PleaseController::class,'infomation'])->name('infomation');

@@ -47,10 +47,7 @@ class LikeController extends Controller
         ];
         //ビューにいいね数を渡しています。名前は上記のlikesCountとなるため、フロントでlikesCountといった表記で受け取っているのがわかると思います。
         return response()->json($param);
-        // 値としてフロントに渡す→fetchでうけとる
     }
-   
-
     
     public function LikePost(Request $request,PostLike $post_like){
        

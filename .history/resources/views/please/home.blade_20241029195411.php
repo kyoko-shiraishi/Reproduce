@@ -104,16 +104,17 @@
                     })
                     .then(data => {
                         console.log(data)
-                        if (data=='skip'){
-                            return "ok";
-
-                        }else{
+                        if (data==skip){return "ok"}else{
                         clickedEl.nextElementSibling.innerHTML = data.likesCount;
                     }
                     })
                     .catch(() => alert('処理が失敗しました。画面を再読み込みし、通信環境の良い場所で再度お試しください。'));
-                console.log('res.',res);
-                   
+                    if(1){
+                        console.log(res)   
+                    }
+                // }else{
+                //     console.log('セッション切れ')
+                // }
         });
     });
         document.addEventListener("DOMContentLoaded", function() {

@@ -43,7 +43,7 @@ class PleaseController extends Controller
             // withCount はリレーションの名前を入れる→リレーション先のレコード数をカウントしてくれる
             $all_threads = Thread::withCount('thread_likes')
                 ->when($sort === 'new', function ($query) {
-                   
+                    dd($query)
                     return $query->orderBy('created_at', 'desc'); // 新しい順
                 })
                 ->when($sort === 'old', function ($query) {

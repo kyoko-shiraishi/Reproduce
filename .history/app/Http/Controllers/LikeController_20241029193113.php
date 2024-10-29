@@ -49,7 +49,7 @@ class LikeController extends Controller
         return response()->json($param);
         // 値としてフロントに渡す→fetchでうけとる
     }
-   
+    非同期処理
 
     
     public function LikePost(Request $request,PostLike $post_like){

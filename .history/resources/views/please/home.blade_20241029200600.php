@@ -104,9 +104,8 @@
                     })
                     .then(data => {
                         console.log(data)
-                        if (data=='skip'){
-                            return "ok";
-
+                        if (data=='skip'){return "ok"
+                            
                         }else{
                         clickedEl.nextElementSibling.innerHTML = data.likesCount;
                     }

@@ -19,7 +19,7 @@ class LikeController extends Controller
     {
       
         $user_id = \Auth::id();
-        
+        print_r('いいね');
         //jsのfetchメソッドで記事のidを送信しているため受け取ります。
         $thread_id = $request->thread_id;
         //自身がいいね済みなのか判定します

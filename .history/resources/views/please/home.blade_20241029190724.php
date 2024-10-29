@@ -92,28 +92,27 @@
                         },
                         body: JSON.stringify({ thread_id: threadId })
                     })
-                    .then(res => {
+                    .then(res => 
                     console.log(res)
-                         if (res.status ==419) {
-                            console.log("せんい");
-                        
-                         window.location.reload();
-                        return "skip";    
-                        }
-                        return res.json();
-                    })
-                    .then(data => {
-                        console.log(data)
-                        if (data=='skip'){
-                            return "ok";
-
-                        }else{
-                        clickedEl.nextElementSibling.innerHTML = data.likesCount;
+                    if (res.status == 404){
+                        console.log("404")
+                        return "skip";
+                    } else if (res.status ==419) {
+                        console.log("せんい");
+                        window.location.reload();
+                        window.location.assign("../login");
                     }
-                    })
-                    .catch(() => alert('処理が失敗しました。画面を再読み込みし、通信環境の良い場所で再度お試しください。'));
-                console.log('res.',res);
-                   
+                    return res.json())
+                    .then(data => {
+                        clickedEl.nextElementSibling.innerHTML = data.likesCount;
+                    });
+                    // .catch(() => alert('処理が失敗しました。画面を再読み込みし、通信環境の良い場所で再度お試しください。'));
+                    if(1){
+                        console.log(res)   
+                    }
+                // }else{
+                //     console.log('セッション切れ')
+                // }
         });
     });
         document.addEventListener("DOMContentLoaded", function() {
