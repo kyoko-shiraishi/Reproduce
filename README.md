@@ -16,13 +16,15 @@
 Twitterのようなインターフェースを採用し、スレッドの作成やコメント、リアルタイムのいいね機能を通じて廃盤商品に関する情報や意見を気軽に共有できます。
 
 
-## Learning Laravel
+## 主な機能
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- スレッド及びスレッドに対するコメントの作成、閲覧、削除
+→ユーザーがスレッドを作成し、他のユーザーからのコメントを受け付けることが可能です。また、スレッドやコメントの削除も対応しています。
+- リアルタイムいいね機能
+- ソート機能
+- ユーザー認証機能
+- 画像投稿機能
+- 人気スレッドトップ３の強調
 
 ## Laravel Sponsors
 
