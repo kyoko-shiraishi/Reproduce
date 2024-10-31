@@ -49,7 +49,8 @@
 }
 
  </style> 
-
+</head> 
+<body> 
     <div class="yoko">
         
         <div class="catchcopy">廃盤商品を<br>知って<br>語って<br>リクエストしよう！</div> 
