@@ -1,6 +1,5 @@
-<html>
-    <head>
-    <style> 
+<x-app-layout>
+ <style> 
  
 .catchcopy{
     font-weight:900;
@@ -50,10 +49,7 @@
 }
 
  </style> 
- </head>
- <body>
-    
- 
+
     <div class="yoko">
         
         <div class="catchcopy">廃盤商品を<br>知って<br>語って<br>リクエストしよう！</div> 
@@ -66,6 +62,6 @@
         <!-- 新規ユーザー登録ボタン実装 --> 
          <a href="{{route('register')}}" class="register-button"> 新規登録 </a> 
     </div>   
-    </body>
-    </html>
+    
+</x-app-layout>
  
