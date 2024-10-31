@@ -14,7 +14,6 @@ class AppServiceProvider extends ServiceProvider
         // すべてのビューにカテゴリを渡す
         View::composer('*', function ($view) {
             $categories = Category::all();
-        
             $view->with('categories', $categories);
         });
     }
