@@ -11,7 +11,7 @@ use App\Http\Controllers\LikeController;
 
 // トップルート
 Route::get('/', function () { 
-    return view('welcome')->name('welcome');
+    return view('welcome')->name('welcome') 
 });
 
 
