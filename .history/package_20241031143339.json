@@ -19,7 +19,6 @@
         "vite": "^5.0"
     },
     "dependencies": {
-        "vite": "^5.0",
         "wanakana": "^5.3.1"
     }
 }
