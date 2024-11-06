@@ -89,17 +89,15 @@
                     body: JSON.stringify({ post_id: PostId })
                 })
                 console.log("aiueo")
-                .then(res => {
-                     return res.json();
-                    })
-                .then(data => {
-                    clickedEl.nextElementSibling.innerHTML = data.likesCount;
-                })
-                .catch(() => alert('処理が失敗しました。再試行してください。'));
-                console.log('res.',res);
-                    });
-                });
-                </script>
+                .then(res => res.json())
+        .then(data => {
+            clickedEl.nextElementSibling.innerHTML = data.likesCount;
+        })
+        .catch(() => alert('処理が失敗しました。再試行してください。'));
+        console.log('res.',res);
+            });
+        });
+        </script>
 @include('please.new_post')
 
 </x-app-layout>

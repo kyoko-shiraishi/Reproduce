@@ -90,16 +90,21 @@
                 })
                 console.log("aiueo")
                 .then(res => {
-                     return res.json();
+                    console.log(res)
+                        
+                        return res.json();
                     })
                 .then(data => {
-                    clickedEl.nextElementSibling.innerHTML = data.likesCount;
-                })
-                .catch(() => alert('処理が失敗しました。再試行してください。'));
+                        console.log(data)
+                       
+                        clickedEl.nextElementSibling.innerHTML = data.likesCount;
+                    
+                    })
+                .catch(() => alert('処理が失敗しました。画面を再読み込みし、通信環境の良い場所で再度お試しください。'));
                 console.log('res.',res);
-                    });
-                });
-                </script>
+            });
+        });
+        </script>
 @include('please.new_post')
 
 </x-app-layout>

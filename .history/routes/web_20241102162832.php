@@ -47,7 +47,8 @@ Route::get('/logo',[PleaseController::class,'logo'])->name('logo');
 
 Route::get('/search',[SearchController::class,'search'])->name('search.results');
 Route::get('/post/{id}',[PostController::class,'post'])->name('post');
-Route::post('/post/like', [LikeController::class, 'LikePost']);
+Route::post('/post/like', [LikeController::class, 'likePost']);
+ROute::post()
 Route::get('/new_thread_create',[PleaseController::class,'new_thread_create'])->name('new_thread_create');
 
 Route::post('/thread_store',[NewController::class,'category'])->name('category');

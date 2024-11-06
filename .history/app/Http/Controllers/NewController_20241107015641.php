@@ -102,7 +102,7 @@ class NewController extends Controller
     $input=[
         'content'=>$request->content,
         'thread_id'=>$threadId,
-        'user_id'=>auth()->id(),
+        'user_id'=>auth()->id,
     ];
     $post->fill($input)->save();
 

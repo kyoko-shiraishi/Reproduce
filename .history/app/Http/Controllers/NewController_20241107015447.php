@@ -100,9 +100,9 @@ class NewController extends Controller
     // 新しいコメントを作成
     $post = new Post();
     $input=[
-        'content'=>$request->content,
-        'thread_id'=>$threadId,
-        'user_id'=>auth()->id(),
+        'content'=>$request->content;
+        'thread_id'=>$threadId;
+        'user_id'=>auth()->id;
     ];
     $post->fill($input)->save();
 

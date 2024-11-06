@@ -63,7 +63,7 @@ class LikeController extends Controller
         $alreadyLiked = PostLike::where('user_id', $user_id)->where('post_id', $post_id)->first();
         
         if (!$alreadyLiked) {
-        //  dd($alreadyLiked);
+            // dd($alreadyLiked);
         //こちらはいいねをしていない場合の処理です。つまり、post_likesテーブルに自身のid（user_id）といいねをした記事のid（post_id）を保存する処理になります。
             $like = new PostLike();
             $like->post_id = $post_id;

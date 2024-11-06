@@ -99,12 +99,10 @@ class NewController extends Controller
 
     // 新しいコメントを作成
     $post = new Post();
-    $input=[
-        'content'=>$request->content,
-        'thread_id'=>$threadId,
-        'user_id'=>auth()->id(),
-    ];
-    $post->fill($input)->save();
+    $post->content = $request->content;
+    $post->thread_id = $threadId; // スレッドIDを関連付ける
+    $post->user_id = auth()->id(); // 現在のユーザーIDを設定
+    $post->save(); // データベースに保存
 
     // スレッドの詳細ページにリダイレクト
     return redirect()->route('post', $threadId)->with('success', 'コメントが投稿されました！');

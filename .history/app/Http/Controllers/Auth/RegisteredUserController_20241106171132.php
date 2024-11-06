@@ -37,13 +37,16 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'prefecture_id' => ['required', 'exists:prefectures,id'], 
-            'year' => 'required|integer|between:1900,' . date('Y'),
-            'month' => 'required|integer|between:1,12',
-            'day' => 'required|integer|between:1,31',
+            'prefecture_id' => ['required', 'exists:prefectures,id'], // 追加: 都道府県IDの検証
         ]);
         
-        
+         // バリデーション
+    $request->validate([
+        'year' => 'required|integer|between:1900,' . date('Y'),
+        'month' => 'required|integer|between:1,12',
+        'day' => 'required|integer|between:1,31',
+    ]);
+
     $now = date('Ymd');
     $birthday = $request->age; // "YYYY-MM-DD"形式
     $birthday = str_replace("-", "", $birthday); // "-"を削除

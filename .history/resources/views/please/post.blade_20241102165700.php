@@ -88,18 +88,31 @@
                     },
                     body: JSON.stringify({ post_id: PostId })
                 })
-                console.log("aiueo")
+                console.log("aiueo");
                 .then(res => {
-                     return res.json();
+                    console.log(res)
+                         if (res.status ==419) {
+                            console.log("せんい");
+                        
+                         window.location.reload();
+                        return "skip";    
+                        }
+                        return res.json();
                     })
-                .then(data => {
-                    clickedEl.nextElementSibling.innerHTML = data.likesCount;
-                })
-                .catch(() => alert('処理が失敗しました。再試行してください。'));
+                    .then(data => {
+                        console.log(data)
+                        if (data=='skip'){
+                            return "ok";
+
+                        }else{
+                        clickedEl.nextElementSibling.innerHTML = data.likesCount;
+                    }
+                    })
+                    .catch(() => alert('処理が失敗しました。画面を再読み込みし、通信環境の良い場所で再度お試しください。'));
                 console.log('res.',res);
-                    });
-                });
-                </script>
+            });
+        });
+        </script>
 @include('please.new_post')
 
 </x-app-layout>
