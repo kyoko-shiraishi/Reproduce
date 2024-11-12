@@ -82,8 +82,8 @@
                 const clickedEl = e.target;
                 clickedEl.classList.toggle('liked');
                 const threadId = clickedEl.id;
-                
-                
+                console.log({{Auth::user()->id}},"あいうえお")
+                // if({{Auth::user()->id}}){
                     const res = await fetch('/thread/like', {// サーバー側のエンドポイントにPOST リクエストを送信
                         method: 'POST',
                         headers: {

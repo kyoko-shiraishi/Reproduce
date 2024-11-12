@@ -82,8 +82,8 @@
                 const clickedEl = e.target;
                 clickedEl.classList.toggle('liked');
                 const threadId = clickedEl.id;
-                
-                
+                console.log({{Auth::user()->id}},"あいうえお")
+                // if({{Auth::user()->id}}){
                     const res = await fetch('/thread/like', {// サーバー側のエンドポイントにPOST リクエストを送信
                         method: 'POST',
                         headers: {
@@ -96,20 +96,17 @@
                     // thenでサーバーからの応答を処理
                     .then(res => {
                     console.log(res)
-                     // CSRF トークンの検証に失敗した可能性があるため、ページをリロードしてログイン状態を確認させる
                          if (res.status ==419) {
                             console.log("せんい");
+                            // CSRF トークンの検証に失敗した可能性があるため、ページをリロードしてログイン状態を確認させる
                         
                          window.location.reload();
                         return "skip";    
                         }
-                        // レスポンスボディをJSONデータとして取得
                         return res.json();
                     })
                     .then(data => {
                         console.log(data)
-                        // 前の処理でページリロードが行われたため、ここでは何もせずに処理を終了させ、
-                        // それ以外の場合は、取得したデータ(data.likesCount)をHTMLに反映
                         if (data=='skip'){
                             return "ok";
 
