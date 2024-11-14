@@ -2,15 +2,16 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PleaseController; 
+use App\Http\Controllers\PleaseController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\NewController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 // トップルート
-Route::get('/', function () { 
+Route::get('/', function () {
     return view('please.welcome');
 });
 
@@ -38,34 +39,33 @@ Route::get('/dashboard', function () {
 
 // 認証が必要なルート
 Route::middleware('auth')->group(function () {
-// ホームページのルート
-Route::get('/home',[PleaseController::class,'home'])->name('home');
+    // ホームページのルート
+    Route::get('/home', [PleaseController::class, 'home'])->name('home');
 
-Route::get('/business',[PleaseController::class,'business'])->name('business');
-Route::get('/infomation',[PleaseController::class,'infomation'])->name('infomation');
-Route::get('/logo',[PleaseController::class,'logo'])->name('logo');
+    Route::get('/business', [PleaseController::class, 'business'])->name('business');
+    Route::get('/infomation', [PleaseController::class, 'infomation'])->name('infomation');
+    Route::get('/logo', [PleaseController::class, 'logo'])->name('logo');
 
-Route::get('/search',[SearchController::class,'search'])->name('search.results');
-Route::get('/post/{id}',[PostController::class,'post'])->name('post');
-Route::post('/post/like', [LikeController::class, 'LikePost']);
-Route::get('/new_thread_create',[PleaseController::class,'new_thread_create'])->name('new_thread_create');
+    Route::get('/search', [SearchController::class, 'search'])->name('search.results');
 
-Route::post('/thread_store',[NewController::class,'category'])->name('category');
+    Route::post('/post/like', [LikeController::class, 'likePost']);
+    Route::get('/post/{id}', [PostController::class, 'post'])->name('post');
 
-Route::post('/thread_store',[NewController::class,'thread_store'])->name('thread_store');
-Route::get('/new_post_create/{id}', [NewController::class, 'new_post_create'])->name('new_post_create');
+    Route::get('/new_thread_create', [PleaseController::class, 'new_thread_create'])->name('new_thread_create');
 
-Route::post('/post_store/{threadId}', [NewController::class, 'post_store'])->name('post_store');
-Route::get('/delete',[PleaseController::class,'delete_show'])->name('delete_show');
-Route::post('/delete_selected',[PleaseController::class,'delete_selected'])->name('delete_selected');
+    Route::post('/thread_store', [NewController::class, 'category'])->name('category');
 
-Route::post('/thread/like', [LikeController::class, 'likeThread']);
+    Route::post('/thread_store', [NewController::class, 'thread_store'])->name('thread_store');
+    Route::get('/new_post_create/{id}', [NewController::class, 'new_post_create'])->name('new_post_create');
 
+    Route::post('/post_store/{threadId}', [NewController::class, 'post_store'])->name('post_store');
+    Route::get('/delete', [PleaseController::class, 'delete_show'])->name('delete_show');
+    Route::post('/delete_selected', [PleaseController::class, 'delete_selected'])->name('delete_selected');
 
+    Route::post('/thread/like', [LikeController::class, 'likeThread']);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
-
+require __DIR__ . '/auth.php';
