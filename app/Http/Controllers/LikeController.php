@@ -11,6 +11,7 @@ use App\Models\ThreadLike;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\PostLike;
+use Illuminate\Support\Facades\Auth;
 
 class LikeController extends Controller
 {
@@ -18,7 +19,7 @@ class LikeController extends Controller
     public function likeThread(Request $request,ThreadLike $thread_like)
     {
       
-        $user_id = \Auth::id();
+        $user_id = Auth::id();
         
         //jsのfetchメソッドで記事のidを送信しているため受け取ります。
         $thread_id = $request->thread_id;
@@ -52,15 +53,16 @@ class LikeController extends Controller
    
 
     
-    public function LikePost(Request $request,PostLike $post_like){
+    public function likePost(Request $request,PostLike $post_like){
        
-        $user_id = \Auth::id();
+        $user_id = Auth::id();
         
         //jsのfetchメソッドで記事のidを送信しているため受け取ります。
         $post_id = $request->post_id;
         //自身がいいね済みなのか判定します
         
         $alreadyLiked = PostLike::where('user_id', $user_id)->where('post_id', $post_id)->first();
+      
         
         if (!$alreadyLiked) {
         //  dd($alreadyLiked);

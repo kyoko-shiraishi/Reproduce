@@ -9,7 +9,8 @@ use App\Models\Product; // 製品のモデルをインポート
 use App\Models\Company; // 会社のモデルをインポート
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
-use Cloudinary;
+use Cloudinary\Cloudinary; // Ensure this line is correct
+use Cloudinary\Transformation\Upload; // Add this line to ensure the correct method is available
 
 class NewController extends Controller
 {
@@ -53,8 +54,9 @@ class NewController extends Controller
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048' 
         ]);
        
-        //cloudinaryへ画像を送信し、画像のURLを$image_urlに代入している
-        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        // Ensure Cloudinary is used correctly
+        $cloudinary = new Cloudinary();
+        $image_url = $cloudinary->uploadApi()->upload($request->file('image')->getRealPath())['secure_url'];
        
 
         // 新しいThreadのインスタンスを作成
@@ -74,7 +76,7 @@ class NewController extends Controller
        
         $new_thread->fill($input)->save();
 
-        // 投稿の詳細ページにリダイレクト
+        // 投稿の詳細ページに��ダイレクト
         return redirect('/home');
 
     }
@@ -91,25 +93,25 @@ class NewController extends Controller
 
         
     public function post_store(Request $request, $threadId)
-{
+    {
     
-    $request->validate([
-        'content' => 'required|string|max:1000',
-    ]);
+        $request->validate([
+            'content' => 'required|string|max:1000',
+        ]);
 
-    // 新しいコメントを作成
-    $post = new Post();
-    $input=[
-        'content'=>$request->content,
-        'thread_id'=>$threadId,
-        'user_id'=>auth()->id(),
-    ];
-    $post->fill($input)->save();
+        // 新しいコメントを作成
+        $post = new Post();
+        $input = [
+            'content' => $request->content,
+            'thread_id' => $threadId,
+            'user_id' => Auth::id(), // Ensure the correct method for retrieving the authenticated user's ID
+        ];
+        $post->fill($input)->save();
 
-    // スレッドの詳細ページにリダイレクト
-    return redirect()->route('post', $threadId)->with('success', 'コメントが投稿されました！');
+        // スレッドの詳細ページにリダイレクト
+        return redirect()->route('post', $threadId)->with('success', 'コメントが投稿されました！');
 
-}
+    }
 
 
 }
