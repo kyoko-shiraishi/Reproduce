@@ -23,6 +23,7 @@ class User extends Authenticatable
         'prefecture',
         'age',
         'gender',
+        'generation'
     ];
 
     /**
@@ -47,19 +48,28 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    public function prefecture(){
-return $this->belongsTo(prefecture::class,'prefectures_id');
+    public function prefecture()
+    {
+        return $this->belongsTo(prefecture::class, 'prefectures_id');
     }
-    public function threads(){
+    public function threads()
+    {
         return $this->hasMany(Thread::class);
     }
-    public function posts(){
+    public function posts()
+    {
         return $this->hasMany(Post::class);
     }
-    public function thread_likes(){
+    public function thread_likes()
+    {
         return $this->hasMany(ThreadLike::class);
     }
-    public function post_likes(){
+    public function post_likes()
+    {
         return $this->hasMany(PostLike::class);
+    }
+    public function generation()
+    {
+        return $this->belongsTo(Generation::class);
     }
 }

@@ -48,6 +48,28 @@ class RegisteredUserController extends Controller
     $birthday = $request->age; // "YYYY-MM-DD"形式
     $birthday = str_replace("-", "", $birthday); // "-"を削除
     $age = floor(($now - $birthday) / 10000); // 年齢を計算
+    switch($age){
+        case $age<20:
+            // ~20'Sに挿入
+            break;
+        case $age>=20 && $age<30
+            // ~30'Sに挿入
+            break;
+        case $age>=30 $$ $age<40
+            // ~40'Sに挿入
+            break;
+        case $age>=40 && $age<50
+            // ~50'Sに挿入
+            break;
+        case $age>=50 && $age<60
+            // ~60'Sに挿入
+            break;
+        case $age>=60
+            // 60'S~に挿入
+            break;        
+
+
+    }
        
         $user = User::create([
             'name' => $request->name,

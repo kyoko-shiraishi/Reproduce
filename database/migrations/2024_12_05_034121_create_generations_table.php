@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('companies', function (Blueprint $table) {
-            $table->string('kananame')->nullable();
+        Schema::create('generations', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('generation');
         });
     }
 
@@ -21,8 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('companies', function (Blueprint $table) {
-            $table->dropColumn('kananame')->nullable();
-        });
+        Schema::dropIfExists('generations');
     }
 };
