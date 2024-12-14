@@ -9,6 +9,7 @@ class Generation extends Model
 {
     use HasFactory;
     protected $fillable = ['generation_id'];
+    public $timestamps = false;
     public function users()
     {
         return $this->hasMany(User::class);

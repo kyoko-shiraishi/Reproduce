@@ -37,7 +37,7 @@ class PleaseController extends Controller
 
     public function home(Request $request)
     {
-        // ソートパラメータを取得（デフォルトは新しい順）
+        // ビューのリクエストキーがsortのフォームからのリクエストを取得
         $sort = $request->input('sort', 'new');
 
         // クエリビルダーのインスタンスを作成
@@ -68,10 +68,6 @@ class PleaseController extends Controller
 
 
         return view('please.business');
-    }
-    public function infomation()
-    {
-        return view('please.infomation');
     }
 
     public function new_thread_create()
