@@ -50,7 +50,32 @@ class RegisteredUserController extends Controller
         $birthday = str_replace("-", "", $birthday); // "-"を削除
         $age = floor(($now - $birthday) / 10000); // 年齢を計算
 
-        $generation = Generation::all();
+
+        switch ($age) {
+            case $age < 20:
+                $generation = '20歳未満';
+                break;
+
+            case $age >= 20 && $age < 30:
+                $generation = '20代';
+                break;
+
+            case $age >= 30 && $age < 40:
+                $generation = '30代';
+                break;
+
+            case $age >= 40 && $age < 50:
+                $generation = '40代';
+                break;
+
+            case $age >= 50 && $age < 60:
+                $generation = '50代';
+                break;
+
+            case $age >= 60 && $age < 70:
+                $generation = '60代';
+                break;
+        }
 
 
 
@@ -60,7 +85,8 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'prefecture_id' => $request->prefecture_id,
             'age' => $age,
-            'gender' => $request->gender
+            'gender' => $request->gender,
+            'generation' => $generation,
 
         ]);
 

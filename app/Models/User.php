@@ -68,8 +68,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(PostLike::class);
     }
-    public function generation()
-    {
-        return $this->belongsTo(Generation::class);
-    }
 }
