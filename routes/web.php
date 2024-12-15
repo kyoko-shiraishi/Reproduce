@@ -8,7 +8,10 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\NewController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\ExcelController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+
+
 
 // トップルート
 Route::get('/', function () {
@@ -68,4 +71,5 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/excel', [ExcelController::class, 'create'])->name('create');
 require __DIR__ . '/auth.php';
