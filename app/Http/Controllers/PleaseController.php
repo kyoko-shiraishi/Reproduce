@@ -9,6 +9,7 @@ use App\Models\Post;
 use App\Models\ThreadLike;
 
 use App\Models\Category;
+use App\Models\Company;
 
 
 class PleaseController extends Controller
@@ -62,12 +63,8 @@ class PleaseController extends Controller
 
     public function business()
     {
-        $all_threads = Thread::With(['user', 'company']);
-
-
-
-
-        return view('please.business');
+        $companies = Company::all();
+        return view('please.business')->with('companies', $companies);
     }
 
     public function new_thread_create()

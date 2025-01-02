@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
     // ホームページのルート
     Route::get('/home', [PleaseController::class, 'home'])->name('home');
     Route::get('/excell', [ExcelController::class, 'export'])->name('excell');
+    Route::get('/data/{id}', [ExcelController::class, 'show'])->name('data.show');
 
 
     Route::get('/business', [PleaseController::class, 'business'])->name('business');
