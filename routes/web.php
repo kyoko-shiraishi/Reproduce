@@ -44,6 +44,8 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     // ホームページのルート
     Route::get('/home', [PleaseController::class, 'home'])->name('home');
+    Route::get('/excell', [ExcelController::class, 'export'])->name('excell');
+
 
     Route::get('/business', [PleaseController::class, 'business'])->name('business');
     Route::get('/infomation', [PleaseController::class, 'infomation'])->name('infomation');
@@ -71,5 +73,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/excel', [ExcelController::class, 'create'])->name('create');
 require __DIR__ . '/auth.php';

@@ -21,6 +21,6 @@
             </form>
         </h2>
     </x-slot>
-    <p>現在ページ作成中！しばしお待ちを！</p>
+    <a href="{{ route('excell') }}">エクセルデータを表示</a>
 
 </x-app-layout>
