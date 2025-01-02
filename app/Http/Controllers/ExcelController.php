@@ -18,7 +18,7 @@ class ExcelController extends Controller
         $threads = Thread::with('product')
             ->where('company_id', $id)
             ->get();
-        return view('data.show')->with('threads', $threads);
+        return view('please.dataShow')->with('threads', $threads);
     }
     public function export()
     {
