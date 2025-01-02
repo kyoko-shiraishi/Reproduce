@@ -19,7 +19,7 @@
     <ul>
         @foreach ($companies as $company)
         <li>
-            <a href="{{ route('data.show', ['id' => $company->id]) }}">{{ $company->name }}</a>
+            <a href="{{ route('dataShow', ['id' => $company->id]) }}">{{ $company->name }}</a>
         </li>
         @endforeach
     </ul>
