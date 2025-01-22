@@ -3,41 +3,57 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use PhpOffice\PhpSpreadsheet\IOFactory;
-use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use App\Models\Product;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use App\Models\Thread;
-
-
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ExcelController extends Controller
 {
     public function show($id)
     {
-        $threads = Thread::with('product')
-            ->where('company_id', $id)
-            ->get();
-        return view('please.dataShow')->with('threads', $threads);
-    }
-    public function export()
-    {
+        try {
+            // 一意の企業のスレッドデータを取得（いいね数、製品名、会社名）
+            $threads = Thread::with('thread_likes.user', 'product', 'company', 'user')
+                ->where('company_id', $id)
+                ->get();
 
-        $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
-        $sheet = $spreadsheet->getActiveSheet();
+            // スプレッドシートの作成
+            $spreadsheet = new Spreadsheet();
+            $sheet = $spreadsheet->getActiveSheet();
 
+            // ヘッダー項目をセット
+            $headers = ['製品名', 'いいね', '性別', '年齢'];
+            $sheet->fromArray($headers, null, 'A1');
 
+            // データをセット
+            $row = 2;
+            foreach ($threads as $thread) {
+                foreach ($thread->thread_likes as $like) {
+                    $sheet->setCellValue('A' . $row, $thread->product->name);
+                    $sheet->setCellValue('B' . $row, $like->user->name);
+                    $sheet->setCellValue('C' . $row, $like->user->gender);
+                    $sheet->setCellValue('D' . $row, $like->user->age);
+                    $row++;
+                }
+            }
 
+            // Excelファイルを保存
+            $writer = new Xlsx($spreadsheet);
+            $fileName = 'company_' . $id . '_data.xlsx';
 
-
-        $sheet->setCellValue('B1', 'いいねしたユーザー');
-        $sheet->setCellValue('C1', '性別');
-        $sheet->setCellValue('D1', '年齢');
-        $sheet->setCellValue('E1', '都道府県');
-
-
-
-        $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
-        $writer->save(public_path('market.xlsx'));
+            return new StreamedResponse(function () use ($writer) {
+                $writer->save('php://output');
+            }, 200, [
+                'Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                'Content-Disposition' => 'attachment;filename="' . $fileName . '"',
+                'Cache-Control' => 'max-age=0',
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'ファイルの読み込みに失敗しました。',
+                'message' => $e->getMessage()
+            ], 500);
+        }
     }
 }

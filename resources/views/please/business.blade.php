@@ -14,7 +14,9 @@
             </form>
         </h2>
     </x-slot>
-    <a href="{{ route('excell') }}">エクセルデータを表示</a>
+
+    <!-- アンカークリックでエクセルファイル表示 -->
+
     <h1>企業一覧</h1>
     <ul>
         @foreach ($companies as $company)
